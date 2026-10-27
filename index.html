@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EchoRef 视频资源 · 心脏超声术语及标准切面</title>
+<style>
+  :root { --ink:#1f2328; --dim:#5a6472; --line:#e3e7ec; --bg:#f6f8fa; --acc:#0b6b52; }
+  * { box-sizing: border-box; }
+  body { margin:0; padding:0 0 40px; background:var(--bg); color:var(--ink);
+         font: 15px/1.6 -apple-system, "Segoe UI", "Microsoft YaHei", sans-serif; }
+  header { padding:26px 20px 18px; background:#fff; border-bottom:1px solid var(--line); }
+  h1 { margin:0 0 6px; font-size:19px; letter-spacing:.3px; }
+  .sub { color:var(--dim); font-size:13px; }
+  .wrap { max-width:760px; margin:0 auto; padding:0 16px; }
+  .grp { margin:22px 0 8px; font-size:13px; font-weight:600; color:var(--acc); letter-spacing:.5px; }
+  .item { background:#fff; border:1px solid var(--line); border-radius:10px;
+          padding:12px 14px; margin-bottom:10px; }
+  .item__n { font-weight:600; }
+  .item__d { color:var(--dim); font-size:12.5px; margin-top:2px; }
+  video { width:100%; margin-top:10px; border-radius:8px; background:#000; display:block; }
+  .meta { color:#8a94a2; font-size:12px; margin-top:6px; }
+  footer { margin-top:28px; color:#8a94a2; font-size:12px; line-height:1.8; }
+  a { color:var(--acc); }
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <h1>心脏超声术语及标准切面 · 演示视频</h1>
+  <div class="sub">GE 心课堂「心脏超声基础规范学习班」学习笔记（上 / 下篇）· 17 段 · 720p</div>
+</div></header>
+<div class="wrap" id="list"></div>
+<div class="wrap"><footer>
+  本页为 EchoRef 心脏超声参考工具的配套视频资源，仅供个人学习使用。<br>
+  原始内容出自微信公众号「GE超声」2021-07-25 发布的学习笔记，版权归原作者所有；<br>
+  此处为自用转存（720p / H.264），未做二次分发，如需引用请前往原文。
+</footer></div>
+<script>
+const V = [
+  { g:'上篇 · 术语与手法', n:'探头标记', f:'kt-01-mark.mp4', d:'方向标记与屏幕方位' },
+  { g:'', n:'常用声窗', f:'kt-02-windows.mp4', d:'胸骨旁 / 心尖 / 剑突下 / 胸骨上窝' },
+  { g:'', n:'探头手法总览与扫查 Sweep', f:'kt-03-maneuvers.mp4', d:'六种基本手法 · 连续扫查剪辑' },
+  { g:'', n:'探头手法：旋转 Rotate', f:'kt-04-rotate.mp4', d:'指示标记转到新方位' },
+  { g:'', n:'探头手法：滑行 Slide', f:'kt-05-slide.mp4', d:'在体表移到新位置' },
+  { g:'', n:'探头手法：摆动 Rock', f:'kt-06-rock.mp4', d:'同一切面内远离 / 靠近' },
+  { g:'', n:'探头手法：成角 Angle', f:'kt-07-angle.mp4', d:'声束指向目标结构' },
+  { g:'下篇 · 标准切面', n:'胸骨旁左室长轴 PLAX', f:'kt-08-plax.mp4', d:'含 LVOT / 主动脉瓣放大' },
+  { g:'', n:'右室流出道 RVOT', f:'kt-09-rvot.mp4', d:'PV · 主肺动脉 · 右室流入道' },
+  { g:'', n:'胸骨旁短轴 PSAX 系列', f:'kt-10-psax.mp4', d:'大血管 → 二尖瓣 → 乳头肌 → 心尖' },
+  { g:'', n:'心尖切面：窗口定位', f:'kt-11-apical.mp4', d:'心尖位置与四腔心入路' },
+  { g:'', n:'关注右室的心尖四腔心', f:'kt-12-rv-a4c.mp4', d:'RV-focused A4C · TAPSE 与右室应变' },
+  { g:'', n:'心尖五腔心与冠状静脉窦', f:'kt-13-5c-cs.mp4', d:'5C View · CS View' },
+  { g:'', n:'心尖二腔心 / 长轴 A2C · A3C', f:'kt-14-a2c.mp4', d:'全扇形 + 聚焦双剪辑' },
+  { g:'', n:'关注肺静脉的心尖切面', f:'kt-15-pulvns.mp4', d:'肺静脉入左房 · 房腔定量' },
+  { g:'', n:'剑突下切面 Subcostal', f:'kt-16-subcostal.mp4', d:'IVC · 肝静脉 · 腹部大血管' },
+  { g:'', n:'胸骨上窝主动脉弓长轴 SSN', f:'kt-17-ssn.mp4', d:'弓部三支 · 右肺动脉' },
+];
+const box = document.getElementById('list');
+V.forEach((v) => {
+  if (v.g) { const h = document.createElement('div'); h.className = 'grp'; h.textContent = v.g; box.appendChild(h); }
+  const d = document.createElement('div');
+  d.className = 'item';
+  d.innerHTML = '<div class="item__n">' + v.n + '</div><div class="item__d">' + v.d + '</div>' +
+    '<video controls preload="none" playsinline src="videos/' + v.f + '"></video>';
+  box.appendChild(d);
+});
+</script>
+</body>
+</html>
