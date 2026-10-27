@@ -10,6 +10,18 @@ https://heiqingyu.github.io/echo-ref-media/videos/<文件名>.mp4
 
 ## 内容
 
+### 飞利浦云课堂 · PISA 原理、误区及应用
+
+2026-03-23 · 徐子特 · 35:34 · 原片 1080p / 692 MB（`live_broadcast/超声/云教室/`）。原片 **moov 在文件尾**（未 faststart），
+微信小程序 `<video>` 组件无法起播（点击后在浏览器才能播），故转 720p + `+faststart`：
+
+```
+ffmpeg -i pisa.mp4 -vf scale=-2:720 -c:v libx264 -preset medium -tune stillimage \
+       -crf 26 -maxrate 620k -bufsize 1240k -c:a aac -b:a 48k -ac 1 -movflags +faststart pisa-lect.mp4
+```
+
+成品 40 MB / 720p / 157 kbps，幻灯片文字与超声图仍清晰。原片备份在仓库外 `videos/_raw2/pisa.mp4`。
+
 《心脏超声术语及标准切面》上下篇 —— GE 心课堂「心脏超声基础规范学习班」学习笔记，2021-07-25 发布于微信公众号「GE超声」。共 17 段，原片 1080p / 420 MB，转存为 720p / H.264 / AAC，合计约 101 MB。
 
 | 文件 | 内容 |
